@@ -2,11 +2,10 @@ from threading import Thread, Timer
 from time import sleep
 import random
 class Pypet:
-  def __init__(self, A = None, nome = None, fome = 0 , saude = 0, idade = 0, idadeR = None, humor = None, lvlUP = None, qtd = None, x = None, death = None):
+  def __init__(self, A = None, nome = None, fome = 0 , saude = 0, idade = 0, idadeR = None, humor = None, lvlUP = 0, qtd = None, x = None, death = None):
     
-    # não gravei o erro que estava dando aqui em cima -
-    # Non-default argument follows default argument, corrigi colacando None em todos
-    self.nome = nome   
+    self.nome = nome   # não gravei o erro que estava dando aqui em cima -
+                       # Non-default argument follows default argument, corrigi colacando algum valor em todos
     self.__fome = fome
     self.__saude = saude
     self.__idade = idade
@@ -107,9 +106,6 @@ class Pypet:
       self.__death = self.__death + 1
       self.__A = self.__A + 1
       
-  def altnome (self):
-    nome = input('Digite o novo nome de seu Pypet:')
-    self.__nome = nome
 
   def timer(self, saude, fome, idade):
       i = 0
