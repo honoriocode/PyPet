@@ -4,8 +4,9 @@ import random
 class Pypet:
   def __init__(self, A = None, nome = None, fome = 0 , saude = 0, idade = 0, idadeR = None, humor = None, lvlUP = None, qtd = None, x = None, death = None):
     
-    self.nome = nome   # não gravei o erro que estava dando aqui em cima -
-                       # Non-default argument follows default argument, corrigi colacando None em todos
+    # não gravei o erro que estava dando aqui em cima -
+    # Non-default argument follows default argument, corrigi colacando None em todos
+    self.nome = nome   
     self.__fome = fome
     self.__saude = saude
     self.__idade = idade
