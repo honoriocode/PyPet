@@ -12,4 +12,4 @@ telinhapypet = TelinhaPypet(window)
 window.geometry('720x480')
 
 
-window.mainloop()
+window.mainloop() 

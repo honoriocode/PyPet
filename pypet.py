@@ -2,7 +2,7 @@ from threading import Thread, Timer
 from time import sleep
 import random
 class Pypet:
-  def __init__(self, A = None, nome = None, fome = None , saude = None, idade = None, idadeR = None, humor = None, lvlUP = None, qtd = None, x = None, death = None):
+  def __init__(self, A = None, nome = None, fome = 0 , saude = 0, idade = 0, idadeR = None, humor = None, lvlUP = None, qtd = None, x = None, death = None):
     
     self.nome = nome   # não gravei o erro que estava dando aqui em cima -
                        # Non-default argument follows default argument, corrigi colacando None em todos
@@ -23,6 +23,13 @@ class Pypet:
   @nome.setter
   def nome (self,nome):
     self.__nome = nome
+
+  @property
+  def humor (self):
+    return self.__humor
+  @nome.setter
+  def humor (self,humor):
+    self.__humor = humor
 
   @property
   def death (self):
@@ -59,10 +66,10 @@ class Pypet:
       j = [15,25,35,45,60,75,85,100]
       self.__saude = random.choice(j)
       a += 1
-    if saude > 100:
+    if self.__saude > 100:
       self.__saude = 100 
-    if self.__fome < 0:
-      self.__fome = 0
+    if self.__saude < 0:
+      self.__saude = 0
     return self.__saude
   
   @property
@@ -70,9 +77,10 @@ class Pypet:
     return self.__idade  
   @idade.setter
   def idade(self, idade):
+    idade = 0
     if idade > 0:
       self.__idade = idade  
-    if self.__idade < 0:
+    if idade < 0:
       self.__idade = 0
 
   @property
@@ -89,8 +97,6 @@ class Pypet:
       self.__lvlUP = lvlUP = lvlUP + 1
       self.__A = self.__A - 1
     return self.__lvlUP
-    
-  
 
   def Reaper (self):
     if self.__idade >= 70:
@@ -124,7 +130,7 @@ class Pypet:
         self.__death = self.__death + 1
         self.Threading
   
-  def Threading(self,):    
+  def Threading(self):    
       Thread(target=self.timer).start()    
       
   def checkH(self, humor):
@@ -133,7 +139,7 @@ class Pypet:
       if self.__saude and self.__fome == 100:
         self.__x = 1
         if self.__x == 1:
-          self.__humor = 'Super Alegre'
+          self.__humor = 'Super Alegre!'
           return self.__humor
       if self.__saude and self.__fome >= 75:
         self.__x = 2
@@ -157,5 +163,5 @@ class Pypet:
           return self.__humor
           
   def mostrar(self):
-    return self.__nome + " têm " + str(self.__idade) + ", está com " + str(self.__fome) + "," + str(self.__saude) + "e está" + str(self.__humor)
+    return self.__nome + " têm " + str(self.__idade) + "anos, está com " + str(self.__fome) + "de fome," + str(self.__saude) + "de saúde e está" + str(self.__humor) 
     # Fazer o método aparecer ao apertar um botão
