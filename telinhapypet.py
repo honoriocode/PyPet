@@ -1,5 +1,6 @@
-import plistlib
+
 import tkinter as tk
+from tkinter import *
 from tkinter import messagebox
 from PIL import ImageTk, Image
 from pypet import Pypet
